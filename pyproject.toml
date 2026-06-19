@@ -1,0 +1,22 @@
+[project]
+name = "eval-blog"
+version = "0.1.0"
+description = "Reproduction code and figures for the essay 'Evals Are Measurements, Not Tests'"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "numpy",
+    "scipy",
+    "pymc",
+    "matplotlib",
+    "pandas",
+    "bayes-evals",
+]
+# Exact versions are pinned in uv.lock (and mirrored in requirements.txt for pip users):
+# numpy 2.4.6, scipy 1.17.1, pymc 6.0.1, pytensor 3.0.3, matplotlib 3.10.9, pandas 3.0.3.
+# The pins matter — the design-power table's last digit is version-sensitive across scipy releases.
+
+# bayes_evals is not on PyPI; it is the reference library from Bowyer, Aitchison &
+# Ivanova (arXiv:2503.01747). Pinned to a specific commit so "agrees with bayes_evals"
+# stays reproducible, as noted in notes/CONTEXT.md.
+[tool.uv.sources]
+bayes-evals = { git = "https://github.com/sambowyer/bayes_evals.git", rev = "b9711844e00e9664258de321966ecd258a7273d6" }
