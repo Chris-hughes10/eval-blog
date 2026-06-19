@@ -69,7 +69,7 @@ So we have to *be* the error bar ourselves, because nothing around us will draw 
 
 Everything below runs on simulated data, and that's a deliberate choice rather than a shortcut. The post is about the statistics of eval *outcomes* — correct or incorrect per question, a few repeated samples, two models on the same questions, judge labels against ground truth. None of that needs a live LLM, and using one would only add cost, nondeterminism, and a result we can't reproduce. More importantly, when we plant the true parameters ourselves, we can check that the inference actually recovers them. With a real model we never know the truth, so we can never demonstrate that the method works — only that it ran. That habit of writing down the data-generating process first is one of the most useful things I've taken from the Bayesian literature, so it seemed right to build the post on it.
 
-If you'd rather take the code than read about it, you can: all the worked examples, the figures, the prior-sensitivity and calibration checks, and the cross-validation against an independent library live in a companion repository you can clone and reproduce with a single command — [github.com/Chris-hughes10/eval-blog](https://github.com/Chris-hughes10/eval-blog). The snippets in the post are lightly trimmed for reading; the repo is the source of truth.
+If you'd rather take the code than read about it, you can: all the worked examples, the figures, the prior-sensitivity and calibration checks, and the cross-validation against an independent library live in [the companion repository](https://github.com/Chris-hughes10/eval-blog), which you can clone and reproduce with a single command. The snippets in the post are lightly trimmed for reading; the repo is the source of truth.
 
 A little shared setup for everything that follows:
 
@@ -618,6 +618,8 @@ One layer up, [Hypothesis-Driven AI Delivery](https://chris-hughes10.github.io/w
 We brought our software discipline to AI, and most of it transferred beautifully — except the part that assumes a test is a deterministic verdict. A single eval case can still pass or fail. A suite can still protect a release. But the score is not the system's capability; it is a measurement of it — a noisy estimate of something we can't see directly, from a system whose answers can vary from one run to the next.
 
 The teams that get this right will not necessarily be the ones with the most elaborate harnesses or the prettiest dashboards. They will be the ones that know what their numbers can and cannot support. They will still run evals, compare prompts, swap models, inspect slices, calibrate judges, and set release bars. But they will stop treating a three-point lift as a verdict from the machine and start treating it as evidence with a strength attached.
+
+For forward-deployed teams, this is not statistical polish. It is delivery discipline. We are often the people in the room closest to both the model and the decision, which means we are responsible for saying what the number can support — and what it cannot.
 
 That is the discipline AI engineering needs next: not just to evaluate more, but to read evals correctly. The eval went up three points. The important question is not whether that sounds good. It is: how sure are we?
 
