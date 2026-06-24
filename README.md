@@ -3,15 +3,13 @@
 Blog post and fully reproducible companion code for **"Evals Are Measurements, Not Tests"** —
 a Bayesian, code-first treatment of the statistics of small-sample LLM evals.
 
-- The post: [post/evals-are-measurements-not-tests.md](post/evals-are-measurements-not-tests.md)
+- The post: [Your AI Eval Isn’t a Test. It’s a Measurement.]([post/evals-are-measurements-not-tests.md](https://chris-hughes10.github.io/posts/evals-are-measurements-not-tests/))
 - Every number and figure in the post is regenerated from simulated data (planted ground
   truth, so the inference can be *checked*, not just run) — no live model required.
 
 ## Layout
 
 ```
-.
-├── post/        the blog post (Markdown); images reference ../figures/
 ├── src/         the runnable scripts
 │   ├── eval_stats.py     all worked examples + prior-sensitivity + calibration; writes the 5 figures
 │   ├── cross_check.py    single-accuracy interval & calibration vs the bayes_evals reference library
